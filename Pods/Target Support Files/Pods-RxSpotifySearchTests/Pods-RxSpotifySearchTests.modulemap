@@ -1,0 +1,6 @@
+framework module Pods_RxSpotifySearchTests {
+  umbrella header "Pods-RxSpotifySearchTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   version = "1.3">
+   <BuildAction>
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForRunning = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1F0FA70186CA5C0F701C3B84"
+               BuildableName = "RxSpotifySearch.app"
+               BlueprintName = "RxSpotifySearch"
+               ReferencedContainer = "container:RxSpotifySearch.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <LaunchAction
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Debug">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "1F0FA70186CA5C0F701C3B84"
+            BuildableName = "RxSpotifySearch.app"
+            BlueprintName = "RxSpotifySearch"
+            ReferencedContainer = "container:RxSpotifySearch.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </LaunchAction>
+</Scheme>
