@@ -30,7 +30,7 @@ class SearchViewController: UITableViewController {
     private func setupTableView() {
         tableView.delegate = nil
         tableView.rx.setDelegate(self)
-                .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         tableView.dataSource = nil
     }
 }
