@@ -14,7 +14,7 @@ import RxCocoa
 
 class SearchViewController: UITableViewController {
     fileprivate enum Constatnts {
-        static let minimumSearchLength = 3
+        static let rowHeight: CGFloat = 50.0
     }
     @IBOutlet weak var searchBar: UISearchBar!
     private let disposeBag = DisposeBag()
@@ -25,12 +25,16 @@ class SearchViewController: UITableViewController {
         super.viewDidLoad()
         navigationItem.titleView = searchBar
         setupTableView()
+        bindData()
     }
 
     private func setupTableView() {
         tableView.delegate = nil
-        tableView.rx.setDelegate(self)
-            .disposed(by: disposeBag)
         tableView.dataSource = nil
+        tableView.rowHeight = Constatnts.rowHeight
+    }
+
+    private func bindData() {
+
     }
 }
