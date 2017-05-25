@@ -41,15 +41,19 @@ class SpotifyClient {
 }
 
 extension SpotifyClient: ReactiveCompatible {}
+
 extension Reactive where Base: SpotifyClient {
+
     func search(query: String) -> Observable<[Track]> {
         return Observable.create { observer in
             let request = self.base.search(query: query, callback: { tracks in
                 observer.onNext(tracks)
+                observer.onCompleted()
             })
             return Disposables.create {
                 request.cancel()
             }
-        }.observeOn(MainScheduler.instance)
+        }
     }
+
 }

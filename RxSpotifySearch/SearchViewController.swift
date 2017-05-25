@@ -12,7 +12,7 @@ import SwiftyJSON
 import RxSwift
 import RxCocoa
 
-class SearchViewController: UITableViewController {
+final class SearchViewController: UITableViewController {
     fileprivate enum Constatnts {
         static let rowHeight: CGFloat = 50.0
     }
@@ -35,6 +35,8 @@ class SearchViewController: UITableViewController {
     }
 
     private func bindData() {
+
+        
 
     }
 }

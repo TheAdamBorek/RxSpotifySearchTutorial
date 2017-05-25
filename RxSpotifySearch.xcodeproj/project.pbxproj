@@ -51,6 +51,7 @@
 		6600C5AF1DCD156E00F9D23B /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		6600C5B11DCD1D1C00F9D23B /* TrackRenderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackRenderable.swift; sourceTree = "<group>"; };
 		6600C5B31DCD1F7B00F9D23B /* TrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
+		66B45DB91ED40F6D001EDD1A /* flatMap.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = flatMap.playground; sourceTree = "<group>"; };
 		AE73B255DA4D7BF3D11343FA /* Pods_RxSpotifySearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSpotifySearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F0375AD8DC15A55BA94B3D /* Pods-RxSpotifySearchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSpotifySearchTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxSpotifySearchTests/Pods-RxSpotifySearchTests.release.xcconfig"; sourceTree = "<group>"; };
 		EEC8AB93B2F1EF49BAB47A84 /* Pods_RxSpotifySearchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSpotifySearchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +108,7 @@
 				6600C5AF1DCD156E00F9D23B /* Track.swift */,
 				6600C5B11DCD1D1C00F9D23B /* TrackRenderable.swift */,
 				6600C5B31DCD1F7B00F9D23B /* TrackCell.swift */,
+				66B45DB91ED40F6D001EDD1A /* flatMap.playground */,
 			);
 			path = RxSpotifySearch;
 			sourceTree = "<group>";
