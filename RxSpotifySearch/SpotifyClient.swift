@@ -19,7 +19,7 @@ class SpotifyClient {
         request.httpMethod = "GET"
         request.addValue("Accept", forHTTPHeaderField: "application/json")
         let task = session.dataTask(with: request) { data, response, error in
-            let tracks = data.flatMap { JSON(data: $0) }
+            let tracks = data.flatMap { try? JSON(data: $0) }
                 .map(self.parseTracks) ?? []
             callback(tracks)
         }

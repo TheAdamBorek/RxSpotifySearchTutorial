@@ -32,11 +32,12 @@ class SearchViewController: UITableViewController {
     private func setupTableView() {
         tableView.delegate = nil
         tableView.rx.setDelegate(self)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         tableView.dataSource = nil
         tableView.rx.itemSelected.subscribe(onNext: { [tableView] index in
             tableView?.deselectRow(at: index, animated: false)
-        }).addDisposableTo(disposeBag)
+        })
+        .disposed(by: disposeBag)
         let refreshControl = UIRefreshControl()
         tableView.addSubview(refreshControl)
         self.refreshControl = refreshControl
@@ -50,17 +51,20 @@ class SearchViewController: UITableViewController {
         
         shouldShowCancelButton.subscribe(onNext: { [searchBar] shouldShow in
             searchBar?.showsCancelButton = shouldShow
-        }).addDisposableTo(disposeBag)
+        })
+        .disposed(by: disposeBag)
         
         searchBar.rx.cancelButtonClicked.subscribe(onNext: { [searchBar] in
             searchBar?.resignFirstResponder()
-        }).addDisposableTo(disposeBag)
+        })
+        .disposed(by: disposeBag)
     }
     
     private func bindTracksWithTableView() {
-        tracks.bindTo(tableView.rx.items(cellIdentifier: "TrackCell", cellType: TrackCell.self)) { index, track, cell in
+        tracks.bind(to: tableView.rx.items(cellIdentifier: "TrackCell", cellType: TrackCell.self)) { index, track, cell in
             cell.render(trackRenderable: track)
-            }.addDisposableTo(disposeBag)
+            }
+        .disposed(by: disposeBag)
     }
     
     var tracks: Observable<[TrackRenderable]> {
@@ -88,7 +92,7 @@ class SearchViewController: UITableViewController {
     
     private func filterQuery(containsLessCharactersThan minimumCharacters: Int) -> (String) -> Bool {
         return { query in
-            return query.characters.count >= minimumCharacters
+            return query.count >= minimumCharacters
         }
     }
     

@@ -12,8 +12,6 @@
 		1F0FA6580DE470507FBA9BE6 /* RxSpotifySearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0FA274DD04D60EEE182D18 /* RxSpotifySearchTests.swift */; };
 		1F0FA745D17460E00B3E7510 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0FA1B1CB72C7A376302845 /* SearchViewController.swift */; };
 		1F0FA75EB92BCE372C6B5863 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0FA2C1D788AF7F0211FFA6 /* AppDelegate.swift */; };
-		1F0FA7869DF03C91F21702E5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F0FA4CBF829C98AF08264D8 /* Info.plist */; };
-		1F0FA9C9AED5546CB55978F5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F0FA4636628986D878033CA /* Info.plist */; };
 		1F0FAF00FF66F5CD8E7AE9BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F0FA00735A27233D59F081C /* LaunchScreen.storyboard */; };
 		59856A255D2B4388BD6D2DE1 /* Pods_RxSpotifySearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEC8AB93B2F1EF49BAB47A84 /* Pods_RxSpotifySearchTests.framework */; };
 		6600C5AE1DCD155400F9D23B /* SpotifyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6600C5AD1DCD155400F9D23B /* SpotifyClient.swift */; };
@@ -192,6 +190,7 @@
 		1F0FA4ACCEEEBB5C1ABA368C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Adam Borek";
 				TargetAttributes = {
 					1F0FA70186CA5C0F701C3B84 = {
@@ -225,7 +224,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F0FA7869DF03C91F21702E5 /* Info.plist in Resources */,
 				1F0FA0156C3B82EBFC0A5865 /* Assets.xcassets in Resources */,
 				1F0FAF00FF66F5CD8E7AE9BF /* LaunchScreen.storyboard in Resources */,
 				1F0FA027067EE202EA5ECF06 /* Main.storyboard in Resources */,
@@ -236,7 +234,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F0FA9C9AED5546CB55978F5 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,7 +406,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamborek.RxSpotifySearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -423,7 +420,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -431,7 +430,12 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -465,7 +469,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -473,7 +479,12 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -514,7 +525,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamborek.RxSpotifySearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
