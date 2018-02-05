@@ -9,10 +9,12 @@
 import Foundation
 import SwiftyJSON
 import RxSwift
+import Moya
 
 class SpotifyClient {
-    let session = URLSession(configuration: URLSessionConfiguration.default)
-    
+    let api: APIClient = APICl
+
+
     func search(query: String, callback: @escaping ([Track]) -> Void) -> URLSessionDataTask {
         let encodedQuery = encode(query: query) ?? ""
         var request = URLRequest(url: URL(string: "https://api.spotify.com/v1/search?q=\(encodedQuery)&type=track&market=US")!)
@@ -26,15 +28,15 @@ class SpotifyClient {
         task.resume()
         return task
     }
-    
+
     private func encode(query: String) -> String? {
         var allowedCharacterSet = CharacterSet.urlQueryAllowed
         allowedCharacterSet.insert(charactersIn: " ")
         return query.addingPercentEncoding(withAllowedCharacters: allowedCharacterSet)?
             .replacingOccurrences(of: " ", with: "+")
     }
-    
-    
+
+
     private func parseTracks(json: JSON) -> [Track] {
         return Track.tracks(json: json["tracks"]["items"].array)
     }
