@@ -8,6 +8,7 @@ target 'RxSpotifySearch' do
   pod 'RxCocoa'
   pod 'SwiftyJSON'
   pod 'Moya/RxSwift'
+  pod 'CryptoSwift'
 
   target 'RxSpotifySearchTests' do
     inherit! :search_paths

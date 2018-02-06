@@ -6,18 +6,20 @@
 import Foundation
 import Moya
 import RxSwift
+import SwiftyJSON
 
 protocol API {
-    func request(_ request: APIRequest) -> Single<Data>
+    func request(_ request: APIRequest) -> Observable<Data>
 }
 
 final class APIClient: API {
     private let moyaProvider = MoyaProvider<MoyaRequest>()
 
-    func request(_ request: APIRequest) -> Single<Data> {
+    func request(_ request: APIRequest) -> Observable<Data> {
         return moyaProvider.rx
                 .request(request.asMoyaRequest())
                 .map { try $0.filterSuccessfulStatusCodes().data }
+                .asObservable()
     }
 }
 

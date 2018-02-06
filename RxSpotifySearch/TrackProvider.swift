@@ -8,14 +8,43 @@
 
 import Foundation
 import RxSwift
+import SwiftyJSON
 
 protocol TracksProviding {
-    func tracks(for query: String) -> Single<[Track]>
+    func tracks(for query: String) -> Observable<[Track]>
 }
 
 final class TracksProvider: TracksProviding {
-    private let 
-    func tracks(for query: String) -> PrimitiveSequence<SingleTrait, [Track]> {
+    enum Error: Swift.Error {
+        case invalidJSON
+    }
 
+    private let api: APIClient
+    private let tokenRepository: TokenRepository
+
+    init(api: APIClient = APIClient(),
+         tokenRepository: TokenRepository = Assembly.tokenRepository) {
+        self.api = api
+        self.tokenRepository = tokenRepository
+    }
+
+    func tracks(for query: String) -> Observable<[Track]> {
+        return self.tokenRepository.getToken()
+            .map { self.prepareSearchRequest(for: query, authorizedWith: $0) }
+            .flatMap(api.request)
+            .map(parseTracks)
+    }
+
+    private func prepareSearchRequest(for query: String, authorizedWith token: String) -> APIRequest {
+        return SearchRequest(query: query)
+            .authorized(with: token)
+    }
+
+    private func parseTracks(from data: Data) throws -> [Track] {
+        let json = try JSON(data: data)
+        guard let tracksJSON = json["tracks"]["items"].array else {
+            throw Error.invalidJSON
+        }
+        return tracksJSON.flatMap(Track.init)
     }
 }

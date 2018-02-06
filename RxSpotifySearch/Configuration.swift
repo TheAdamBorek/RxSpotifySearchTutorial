@@ -5,20 +5,20 @@
 
 import Foundation
 
-enum Assembly {
-    static let configuration: Configuration = {
-        do {
-            return try Configuration()
-        } catch let e {
-            fatalError("Error during reading the configuration: \(e)")
-        }
-    }()
-}
-
 struct Configuration {
+    enum Error: Swift.Error {
+        case cannotFetchBaseURL
+    }
+
     let spotifyAPIBaseURL: URL
+    let spotifyAccountsBaseURL: URL
 
     init() throws {
-        self.spotifyAPIBaseURL = URL(string: "https://api.spotify.com")!
+        guard let spotifyAPIBaseURL = URL(string: "https://api.spotify.com"),
+            let spotifyAccountsBaseURL = URL(string: "https://accounts.spotify.com") else {
+                throw Error.cannotFetchBaseURL
+        }
+        self.spotifyAccountsBaseURL = spotifyAccountsBaseURL
+        self.spotifyAPIBaseURL = spotifyAPIBaseURL
     }
 }

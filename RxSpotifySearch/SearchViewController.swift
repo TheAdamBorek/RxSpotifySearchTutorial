@@ -19,7 +19,7 @@ class SearchViewController: UITableViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     private let disposeBag = DisposeBag()
     
-    let spotifyClient = SpotifyClient()
+    let tracksProvider = TracksProvider(api: APIClient())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +70,7 @@ class SearchViewController: UITableViewController {
     var tracks: Observable<[TrackRenderable]> {
         return Observable.of(tracksFromSpotify.do(onNext: { [refreshControl] _ in refreshControl?.endRefreshing() }),
                              clearPreviousTracksOnTextChanged).merge()
+            .catchErrorJustReturn([])
     }
     
     private var tracksFromSpotify: Observable<[TrackRenderable]> {
@@ -78,8 +79,8 @@ class SearchViewController: UITableViewController {
         
         return Observable.of(query, refreshLastQueryOnPullToRefresh).merge()
             .startWith("Let it go - frozen")
-            .flatMapLatest { [spotifyClient] query in
-                return spotifyClient.rx.search(query: query)
+            .flatMapLatest { [tracksProvider] query in
+                return tracksProvider.tracks(for: query)
                     .map { return $0.map(TrackRenderable.init) }
         }
     }
