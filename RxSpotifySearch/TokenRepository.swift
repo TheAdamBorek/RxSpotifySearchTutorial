@@ -49,14 +49,14 @@ final class TokenRepository: TokenReader, TokenWriter {
     }
 
     func refreshToken() -> Observable<String> {
-        return fetchToken()
+        return fetchToken
             .do(onNext: save,
                 onError: { _ in
                 self.storage.token = nil
             })
     }
 
-    private func fetchToken() -> Observable<String> {
+    lazy var fetchToken: Observable<String> = {
         return self.api.request(FetchTokenRequest())
             .map { (data: Data) -> String in
                 let json = try JSON(data: data)
@@ -64,6 +64,7 @@ final class TokenRepository: TokenReader, TokenWriter {
                     throw TokenReadingError.cannotFetchTokenFromRemote
                 }
                 return accessToken
-        }
-    }
+            }
+            .share(scope: .whileConnected)
+    }()
 }
