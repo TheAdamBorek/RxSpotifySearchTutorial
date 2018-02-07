@@ -25,6 +25,7 @@
 		66566933202A67E000B94255 /* TokenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66566932202A67E000B94255 /* TokenRepository.swift */; };
 		66566935202A689900B94255 /* Rx+filterNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66566934202A689900B94255 /* Rx+filterNil.swift */; };
 		66BF7E282028462F006412E9 /* TrackProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BF7E272028462F006412E9 /* TrackProvider.swift */; };
+		66FC2C42202A794800CC2D9E /* TokenHasExpiredRetryStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FC2C41202A794800CC2D9E /* TokenHasExpiredRetryStrategy.swift */; };
 		75C1CE13C3C443C788CC8C74 /* Pods_RxSpotifySearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE73B255DA4D7BF3D11343FA /* Pods_RxSpotifySearch.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		66566932202A67E000B94255 /* TokenRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRepository.swift; sourceTree = "<group>"; };
 		66566934202A689900B94255 /* Rx+filterNil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+filterNil.swift"; sourceTree = "<group>"; };
 		66BF7E272028462F006412E9 /* TrackProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackProvider.swift; sourceTree = "<group>"; };
+		66FC2C41202A794800CC2D9E /* TokenHasExpiredRetryStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenHasExpiredRetryStrategy.swift; sourceTree = "<group>"; };
 		AE73B255DA4D7BF3D11343FA /* Pods_RxSpotifySearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSpotifySearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F0375AD8DC15A55BA94B3D /* Pods-RxSpotifySearchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSpotifySearchTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxSpotifySearchTests/Pods-RxSpotifySearchTests.release.xcconfig"; sourceTree = "<group>"; };
 		EEC8AB93B2F1EF49BAB47A84 /* Pods_RxSpotifySearchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSpotifySearchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +128,7 @@
 				66566932202A67E000B94255 /* TokenRepository.swift */,
 				66566934202A689900B94255 /* Rx+filterNil.swift */,
 				6620DCD9202A70DD00DC827F /* Assembly.swift */,
+				66FC2C41202A794800CC2D9E /* TokenHasExpiredRetryStrategy.swift */,
 			);
 			path = RxSpotifySearch;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 			files = (
 				1F0FA75EB92BCE372C6B5863 /* AppDelegate.swift in Sources */,
 				6600C5B21DCD1D1C00F9D23B /* TrackRenderable.swift in Sources */,
+				66FC2C42202A794800CC2D9E /* TokenHasExpiredRetryStrategy.swift in Sources */,
 				6600C5B01DCD156E00F9D23B /* Track.swift in Sources */,
 				1F0FA745D17460E00B3E7510 /* SearchViewController.swift in Sources */,
 				6600C5B41DCD1F7B00F9D23B /* TrackCell.swift in Sources */,

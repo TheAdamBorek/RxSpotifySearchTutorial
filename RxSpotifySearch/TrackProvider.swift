@@ -21,11 +21,14 @@ final class TracksProvider: TracksProviding {
 
     private let api: APIClient
     private let tokenRepository: TokenRepository
+    private let retryStrategy: RetryStrategy
 
     init(api: APIClient = APIClient(),
-         tokenRepository: TokenRepository = Assembly.tokenRepository) {
+         tokenRepository: TokenRepository = Assembly.tokenRepository,
+         retryStrategy: RetryStrategy = TokenHasExpiredRetryStrategy()) {
         self.api = api
         self.tokenRepository = tokenRepository
+        self.retryStrategy = retryStrategy
     }
 
     func tracks(for query: String) -> Observable<[Track]> {
@@ -33,6 +36,7 @@ final class TracksProvider: TracksProviding {
             .map { self.prepareSearchRequest(for: query, authorizedWith: $0) }
             .flatMap(api.request)
             .map(parseTracks)
+            .retryWhen(retryStrategy.retryTrigger)
     }
 
     private func prepareSearchRequest(for query: String, authorizedWith token: String) -> APIRequest {

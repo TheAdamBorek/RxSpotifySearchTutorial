@@ -70,7 +70,6 @@ class SearchViewController: UITableViewController {
     var tracks: Observable<[TrackRenderable]> {
         return Observable.of(tracksFromSpotify.do(onNext: { [refreshControl] _ in refreshControl?.endRefreshing() }),
                              clearPreviousTracksOnTextChanged).merge()
-            .catchErrorJustReturn([])
     }
     
     private var tracksFromSpotify: Observable<[TrackRenderable]> {
@@ -82,6 +81,7 @@ class SearchViewController: UITableViewController {
             .flatMapLatest { [tracksProvider] query in
                 return tracksProvider.tracks(for: query)
                     .map { return $0.map(TrackRenderable.init) }
+                    .catchErrorJustReturn([])
         }
     }
     
